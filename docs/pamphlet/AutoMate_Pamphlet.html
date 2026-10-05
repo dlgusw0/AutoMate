@@ -103,22 +103,24 @@
     }
     .section-title small { font-size: 3.1mm; color: #678; font-weight: 700; margin-left: 2mm; }
 
-    .overview { height: 52mm; }
+    .overview { height: 56mm; }
     .overview-body { display: grid; grid-template-columns: 1fr 57mm; gap: 5mm; padding: 3.4mm 5mm; }
     .overview-list { display: grid; gap: 1.7mm; }
     .overview-row { display: grid; grid-template-columns: 6.5mm 1fr; align-items: start; font-size: 3.25mm; line-height: 1.38; color: #344863; font-weight: 600; }
     .num { width: 5.4mm; height: 5.4mm; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(145deg,#287ce9,#0c3b85); color: white; font-size: 2.9mm; font-weight: 900; }
     .quote {
-      border-radius: 3mm; padding: 5mm 4.5mm;
+      border-radius: 3mm; padding: 3mm 4mm;
       background: linear-gradient(145deg, #edf7ff, #eef4ff);
       border: .3mm solid #d7e7fb; text-align: center;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
     }
-    .quote-mark { color: #5597ea; font-size: 8mm; line-height: .5; }
-    .quote strong { font-size: 4.3mm; line-height: 1.45; color: #17477f; }
-    .quote span { margin-top: 2.5mm; font-size: 2.8mm; color: #6a88ab; font-weight: 700; }
+    .quote-mark { display: none; }
+    .quote strong { font-size: 4mm; line-height: 1.35; color: #17477f; }
+    .quote span { margin-top: 1.2mm; font-size: 2.5mm; color: #6a88ab; font-weight: 700; }
+    .agent-proof { margin-top: 1.3mm; display: flex; flex-wrap: wrap; justify-content: center; gap: .8mm; }
+    .agent-proof i { padding: .6mm 1.35mm; border-radius: 10mm; background: #dbeaff; color: #1a5ba7; font-size: 1.75mm; line-height: 1; font-style: normal; font-weight: 900; }
 
-    .workflow { height: 73mm; }
+    .workflow { height: 71mm; }
     .workflow-body { padding: 2.5mm 5mm 3mm; }
     .stage-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; margin-bottom: 2.3mm; }
     .stage { min-height: 15mm; border-radius: 2.5mm; padding: 2.3mm 3.5mm; border: .3mm solid #dceafb; background: #f7fbff; }
@@ -169,10 +171,12 @@
     .json-card { border-radius: 2.5mm; background: #071629; color: #d4e6ff; padding: 2mm 3.5mm; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 2.1mm; line-height: 1.35; }
     .json-card b { color: #62ddff; }
     .json-card em { color: #ffbd55; font-style: normal; }
-    .trace { border-left: 1mm solid #3d8de8; background: #f1f7ff; border-radius: 1.5mm; padding: 1.8mm 3mm; font-size: 2.15mm; line-height: 1.35; color: #4b6078; font-weight: 700; }
+    .trace { border-left: 1mm solid #3d8de8; background: #f1f7ff; border-radius: 1.5mm; padding: 1.8mm 3mm; font-size: 2.05mm; line-height: 1.35; color: #4b6078; font-weight: 700; }
     .trace b { color: #165eaf; }
+    .state-lines { margin-top: 1mm; padding-top: 1mm; border-top: .25mm solid #cfe0f4; font-size: 1.9mm; line-height: 1.4; }
+    .state-lines strong { color: #174f91; }
 
-    .impact { height: 43mm; }
+    .impact { height: 41mm; }
     .impact-body { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; padding: 3.5mm 5mm; }
     .impact-card { text-align: center; padding: 2.4mm 2mm; border-right: .25mm solid #e1eaf4; }
     .impact-card:last-child { border-right: 0; }
@@ -222,7 +226,7 @@
             <div class="overview-row"><span class="num">3</span><span>이상 발생 시 제조 매뉴얼을 검색하고 위험도와 대응 절차를 생성하며, 위험하거나 불확실한 판단은 작업자 승인 후 실행합니다.</span></div>
             <div class="overview-row"><span class="num">4</span><span>Unity 생산라인 시뮬레이션과 양방향 연동하여 검사 요청, 결과 수신, 라인 정지, 조치 완료, 재검사까지 End-to-End 흐름을 구현했습니다.</span></div>
           </div>
-          <aside class="quote"><div class="quote-mark">“</div><strong>사진 한 장의 판정을 넘어<br/>조치와 검증까지 수행하는 Agent</strong><span>Human-in-the-loop 기반 안전 설계</span></aside>
+          <aside class="quote"><div class="quote-mark">“</div><strong>사진 한 장의 판정을 넘어<br/>조치와 검증까지 수행하는 Agent</strong><span>Human-in-the-loop 기반 안전 설계</span><div class="agent-proof"><i>GOAL</i><i>PLANNING</i><i>REASONING</i><i>TOOLS</i><i>MEMORY</i><i>FEEDBACK</i></div></aside>
         </div>
       </section>
 
@@ -267,7 +271,7 @@
               <div class="test-row"><div>TC05</div><div>판별 불확실 이미지<span>UNKNOWN · HUMAN_REVIEW_REQUIRED</span></div><div class="pass">PASS</div></div>
             </div>
             <div class="json-card"><b>{</b><br>&nbsp;"status": <em>"ABNORMAL"</em>,<br>&nbsp;"defect": <em>"front_right_wheel_missing"</em>,<br>&nbsp;"confidence": <em>0.95</em>,<br>&nbsp;"risk_level": <em>"CRITICAL"</em><br><b>}</b></div>
-            <div class="trace"><b>Agent 실행 추적</b><br/>Vision Inspection → Defect Detection → Manual Search → Risk Assessment → Action Planning → Operator Approval → Reinspection</div>
+            <div class="trace"><b>Agent 실행 추적</b><br/>Vision Inspection → Defect Detection → Manual Search → Risk Assessment → Action Planning → Operator Approval → Reinspection<div class="state-lines"><strong>Memory/State</strong> inspection_id · 이전 판정 · 결함 · 대응 · 승인 · 재검사 횟수<br/><strong>Feedback</strong> 조치 완료 → 재검사 → RESOLVED / 이상 지속 → REANALYZE</div></div>
           </div>
         </div>
       </section>
@@ -284,7 +288,7 @@
     </main>
 
     <footer>
-      <div class="footer-left"><b>AutoMate</b> · 자동차 조립공정 이상 분석 및 대응 AI Agent<br/>제4회 경남 AI 공모전 · 제조·피지컬 AI Agent 분야 · 개발자 이현재</div>
+      <div class="footer-left"><b>AutoMate</b> · 자동차 조립공정 이상 분석 및 대응 AI Agent<br/>제4회 경남 AI 공모전 · 제조·피지컬 AI Agent 분야 · 개발자 이현재<br/><b>기존 자산</b> YOLO-World·Gemini·Unity　 <b>신규 개발</b> Agent Workflow·Manual Tool·Memory/Feedback·Unity Bridge</div>
       <div class="github"><img src="assets/github_qr.png" alt="GitHub QR"/><div><strong>Source &amp; Demo Guide</strong>github.com/dlgusw0/AutoMate</div></div>
     </footer>
   </div>

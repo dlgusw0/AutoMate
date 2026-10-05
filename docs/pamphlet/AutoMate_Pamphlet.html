@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AutoMate | 자동차 조립공정 이상 분석 및 대응 AI Agent</title>
+  <style>
+    @page { size: A3 portrait; margin: 0; }
+    * { box-sizing: border-box; }
+    :root {
+      --navy: #071733;
+      --navy2: #0c2853;
+      --blue: #1268e5;
+      --cyan: #21d4fd;
+      --mint: #29d6a0;
+      --red: #ff5468;
+      --amber: #ffb52e;
+      --ink: #11233f;
+      --muted: #60718d;
+      --line: #d9e6f5;
+      --panel: #f5f9ff;
+    }
+    html, body { margin: 0; padding: 0; width: 297mm; min-height: 420mm; }
+    body {
+      font-family: "Apple SD Gothic Neo", "Noto Sans Gothic", "AppleGothic", sans-serif;
+      color: var(--ink);
+      background: #dfe9f7;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .page {
+      width: 297mm;
+      height: 420mm;
+      background: white;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero {
+      height: 75mm;
+      position: relative;
+      overflow: hidden;
+      color: white;
+      background: var(--navy);
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
+      object-position: 66% 54%;
+      filter: saturate(1.15) contrast(1.04);
+    }
+    .hero::after {
+      content: ""; position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 83% 38%, rgba(33,212,253,.08), transparent 35%),
+        linear-gradient(90deg, rgba(4,17,42,.98) 0%, rgba(4,22,52,.94) 41%, rgba(4,23,54,.36) 72%, rgba(4,18,42,.6) 100%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0; z-index: 1; opacity: .15;
+      background-image: linear-gradient(rgba(60,185,255,.35) 1px, transparent 1px), linear-gradient(90deg, rgba(60,185,255,.35) 1px, transparent 1px);
+      background-size: 10mm 10mm;
+      mask-image: linear-gradient(90deg, #000, transparent 72%);
+    }
+    .hero-content {
+      position: relative; z-index: 2; height: 100%;
+      padding: 9mm 13mm 6mm;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: 2mm; width: max-content;
+      padding: 1.5mm 4mm; border-radius: 20mm;
+      background: rgba(33,212,253,.14); border: .35mm solid rgba(67,218,255,.6);
+      color: #8feaff; font-size: 4mm; font-weight: 800; letter-spacing: .15mm;
+    }
+    .badge-dot { width: 2mm; height: 2mm; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 4mm var(--cyan); }
+    h1 { margin: 4mm 0 0; font-size: 18mm; line-height: .9; letter-spacing: -.9mm; font-weight: 900; }
+    .hero-sub { margin-top: 3.3mm; font-size: 7.2mm; font-weight: 800; letter-spacing: -.25mm; }
+    .hero-desc { margin-top: 2.3mm; max-width: 162mm; font-size: 3.75mm; line-height: 1.5; color: #d3e4ff; font-weight: 600; }
+    .hero-bottom { display: flex; align-items: flex-end; justify-content: space-between; }
+    .identity { font-size: 3.5mm; color: #cfe0fb; }
+    .identity b { color: #5ee4ff; margin-right: 1.5mm; }
+    .hero-slogan {
+      text-align: right; font-size: 4.3mm; line-height: 1.35; font-weight: 800;
+      text-shadow: 0 1mm 3mm rgba(0,0,0,.7);
+    }
+    .hero-slogan em { display: block; color: #6ee9ff; font-size: 3.2mm; font-style: normal; letter-spacing: .2mm; }
+
+    main { padding: 5mm 9mm 0; }
+    .section {
+      border: .35mm solid var(--line); border-radius: 4mm;
+      box-shadow: 0 1mm 4mm rgba(17,51,94,.06);
+      overflow: hidden; background: white; margin-bottom: 3.5mm;
+    }
+    .section-title {
+      height: 11mm; padding: 0 5mm; display: flex; align-items: center; gap: 2.4mm;
+      font-size: 5.6mm; font-weight: 900; letter-spacing: -.2mm;
+      background: linear-gradient(90deg, #edf5ff, #fff);
+      border-bottom: .25mm solid #e3edf9;
+    }
+    .title-icon {
+      width: 7mm; height: 7mm; border-radius: 1.7mm; display: grid; place-items: center;
+      background: linear-gradient(145deg, #1759bd, #0a2b61); color: white; font-size: 3.8mm;
+      box-shadow: 0 1mm 2mm rgba(20,85,173,.22);
+    }
+    .section-title small { font-size: 3.1mm; color: #678; font-weight: 700; margin-left: 2mm; }
+
+    .overview { height: 52mm; }
+    .overview-body { display: grid; grid-template-columns: 1fr 57mm; gap: 5mm; padding: 3.4mm 5mm; }
+    .overview-list { display: grid; gap: 1.7mm; }
+    .overview-row { display: grid; grid-template-columns: 6.5mm 1fr; align-items: start; font-size: 3.25mm; line-height: 1.38; color: #344863; font-weight: 600; }
+    .num { width: 5.4mm; height: 5.4mm; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(145deg,#287ce9,#0c3b85); color: white; font-size: 2.9mm; font-weight: 900; }
+    .quote {
+      border-radius: 3mm; padding: 5mm 4.5mm;
+      background: linear-gradient(145deg, #edf7ff, #eef4ff);
+      border: .3mm solid #d7e7fb; text-align: center;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+    }
+    .quote-mark { color: #5597ea; font-size: 8mm; line-height: .5; }
+    .quote strong { font-size: 4.3mm; line-height: 1.45; color: #17477f; }
+    .quote span { margin-top: 2.5mm; font-size: 2.8mm; color: #6a88ab; font-weight: 700; }
+
+    .workflow { height: 73mm; }
+    .workflow-body { padding: 2.5mm 5mm 3mm; }
+    .stage-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; margin-bottom: 2.3mm; }
+    .stage { min-height: 15mm; border-radius: 2.5mm; padding: 2.3mm 3.5mm; border: .3mm solid #dceafb; background: #f7fbff; }
+    .stage:nth-child(2) { background: #f6f4ff; border-color: #e2dcff; }
+    .stage:nth-child(3) { background: #effbf7; border-color: #d3f2e7; }
+    .stage-top { display: flex; align-items: center; gap: 2mm; font-size: 3.7mm; font-weight: 900; color: #1768ca; }
+    .stage:nth-child(2) .stage-top { color: #6347cf; }
+    .stage:nth-child(3) .stage-top { color: #13825f; }
+    .stage-n { width: 6mm; height: 6mm; border-radius: 50%; display: grid; place-items: center; color: white; background: #1768ca; font-size: 3mm; }
+    .stage:nth-child(2) .stage-n { background: #6347cf; }
+    .stage:nth-child(3) .stage-n { background: #13825f; }
+    .stage-n b { color: white; }
+    .stage p { margin: 1.5mm 0 0 8mm; font-size: 2.75mm; line-height: 1.35; color: #53667e; font-weight: 650; }
+    .flow-label { font-size: 3mm; font-weight: 900; color: #48617f; margin: 0 0 1.8mm .5mm; }
+    .flow { display: grid; grid-template-columns: 1.08fr 5mm 1fr 5mm 1fr 5mm 1fr 5mm 1.15fr 5mm 1.15fr; align-items: stretch; }
+    .node { min-height: 21mm; border: .35mm solid #cbdff6; border-radius: 2.5mm; background: white; text-align: center; padding: 1.8mm 1.7mm; box-shadow: 0 .8mm 2mm rgba(14,66,132,.07); }
+    .node-icon { width: 7mm; height: 7mm; margin: 0 auto 1mm; border-radius: 1.5mm; display: grid; place-items: center; color: white; background: linear-gradient(145deg,#2a86ed,#1552ae); font-size: 3.5mm; }
+    .node strong { display: block; font-size: 3mm; line-height: 1.25; }
+    .node span { display: block; margin-top: 1mm; font-size: 2.25mm; line-height: 1.25; color: #64758b; font-weight: 650; }
+    .arrow { display: grid; place-items: center; color: #5d91cc; font-size: 5mm; font-weight: 900; }
+    .techline { margin-top: 2.2mm; border-radius: 2mm; background: #eef5ff; padding: 1.7mm 3mm; font-size: 2.7mm; font-weight: 700; color: #355578; }
+    .techline b { color: #1766c4; margin-right: 2mm; }
+
+    .results { height: 134mm; }
+    .results-body { display: grid; grid-template-columns: 148mm 1fr; gap: 4mm; padding: 3mm 5mm; }
+    .capture-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3mm; }
+    .capture { position: relative; height: 43.5mm; border-radius: 2.8mm; overflow: hidden; background: #071733; border: .35mm solid #d0dff2; }
+    .capture img { width: 100%; height: 100%; object-fit: cover; }
+    .capture::after { content:""; position:absolute; inset:0; background: linear-gradient(transparent 60%, rgba(2,12,29,.9)); }
+    .capture-label { position: absolute; z-index: 2; left: 2.5mm; right: 2.5mm; bottom: 2mm; display: flex; align-items: center; justify-content: space-between; color: white; }
+    .capture-label strong { font-size: 3mm; }
+    .status { font-size: 2.2mm; font-weight: 900; padding: .8mm 1.8mm; border-radius: 10mm; background: var(--mint); color: #05281c; }
+    .status.danger { background: var(--red); color: white; }
+    .status.high { background: var(--amber); color: #3a2300; }
+    .result-panel { display: flex; flex-direction: column; gap: 2mm; }
+    .score-card { height: 20mm; border-radius: 3mm; padding: 2.2mm 4mm; color: white; background: linear-gradient(135deg,#0a397b,#0b75da); position: relative; overflow: hidden; }
+    .score-card::after { content:""; position:absolute; width:30mm; height:30mm; border-radius:50%; right:-8mm; top:-9mm; background:rgba(65,220,255,.18); }
+    .score-card small { font-size: 2.6mm; color: #b8ddff; font-weight: 700; }
+    .score-line { display: flex; align-items: baseline; gap: 2mm; }
+    .score-line strong { font-size: 8.5mm; line-height: 1.05; }
+    .score-line span { font-size: 3.2mm; font-weight: 800; color: #8cecff; }
+    .test-table { border: .3mm solid #dce7f4; border-radius: 2.5mm; overflow: hidden; }
+    .test-head, .test-row { display: grid; grid-template-columns: 11mm 1fr 25mm; align-items: center; }
+    .test-head { height: 6.5mm; padding: 0 2.5mm; background: #eaf3ff; color: #315576; font-size: 2.4mm; font-weight: 900; }
+    .test-row { min-height: 8.2mm; padding: .7mm 2.5mm; border-top: .25mm solid #e8eef6; font-size: 2.35mm; font-weight: 750; }
+    .test-row div:nth-child(2) span { display:block; color:#7b899c; font-size:2mm; margin-top:.3mm; }
+    .pass { justify-self: end; padding: .75mm 1.7mm; border-radius: 10mm; color: #087653; background: #dff8ee; font-size: 2.15mm; font-weight: 900; }
+    .json-card { border-radius: 2.5mm; background: #071629; color: #d4e6ff; padding: 2mm 3.5mm; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 2.1mm; line-height: 1.35; }
+    .json-card b { color: #62ddff; }
+    .json-card em { color: #ffbd55; font-style: normal; }
+    .trace { border-left: 1mm solid #3d8de8; background: #f1f7ff; border-radius: 1.5mm; padding: 1.8mm 3mm; font-size: 2.15mm; line-height: 1.35; color: #4b6078; font-weight: 700; }
+    .trace b { color: #165eaf; }
+
+    .impact { height: 43mm; }
+    .impact-body { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; padding: 3.5mm 5mm; }
+    .impact-card { text-align: center; padding: 2.4mm 2mm; border-right: .25mm solid #e1eaf4; }
+    .impact-card:last-child { border-right: 0; }
+    .impact-icon { font-size: 5mm; }
+    .impact-card strong { display: block; margin-top: .8mm; font-size: 3.1mm; color: #174d8f; }
+    .impact-card span { display: block; margin-top: .8mm; font-size: 2.35mm; line-height: 1.35; color: #627389; font-weight: 650; }
+
+    footer {
+      position: absolute; left: 0; right: 0; bottom: 0; height: 18mm;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 2mm 11mm; background: linear-gradient(90deg,#eaf3ff,#f5f9ff); border-top: .35mm solid #d2e2f5;
+    }
+    .footer-left { font-size: 2.7mm; color: #55708f; font-weight: 700; line-height: 1.5; }
+    .footer-left b { color: #174d91; }
+    .github { display: flex; align-items: center; gap: 2.5mm; }
+    .github img { width: 14mm; height: 14mm; border-radius: 1.5mm; background: white; }
+    .github div { font-size: 2.45mm; color: #63758b; font-weight: 700; }
+    .github strong { display: block; font-size: 3mm; color: #173e72; margin-bottom: .8mm; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <img class="hero-bg" src="assets/normal.png" alt="AutoMate Unity 자동차 조립 라인" />
+      <div class="hero-grid"></div>
+      <div class="hero-content">
+        <div>
+          <div class="badge"><span class="badge-dot"></span> AI·SW 경진대회 2026 · 제조·피지컬 AI Agent</div>
+          <h1>AutoMate</h1>
+          <div class="hero-sub">자동차 조립공정 이상 분석 및 대응 AI Agent</div>
+          <div class="hero-desc">생산공정 이미지를 인식하고 결함을 교차 검증한 뒤, 제조 매뉴얼 기반 대응 계획과 라인 제어를 수행하고 재검사로 해결 여부까지 확인합니다.</div>
+        </div>
+        <div class="hero-bottom">
+          <div class="identity"><b>프로젝트</b> AutoMate　 <b>개발자</b> 이현재</div>
+          <div class="hero-slogan"><em>DETECT · DECIDE · ACT · VERIFY</em>감지에서 해결까지 이어지는<br/>안전한 제조 AI</div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section overview">
+        <div class="section-title"><span class="title-icon">▣</span> 프로젝트 개요 <small>개발 배경 · 목표 · 차별점</small></div>
+        <div class="overview-body">
+          <div class="overview-list">
+            <div class="overview-row"><span class="num">1</span><span>휠·헤드라이트 누락과 도어 조립 이상은 차량 안전과 완성 품질에 직접 영향을 주지만, 작업자의 육안 검사만으로는 누락과 판단 지연이 발생할 수 있습니다.</span></div>
+            <div class="overview-row"><span class="num">2</span><span>AutoMate는 <b>OpenCV → YOLO-World → Gemini Vision</b>을 연결하여 이미지 품질, 객체 탐지, 조립 이상을 단계적으로 분석합니다.</span></div>
+            <div class="overview-row"><span class="num">3</span><span>이상 발생 시 제조 매뉴얼을 검색하고 위험도와 대응 절차를 생성하며, 위험하거나 불확실한 판단은 작업자 승인 후 실행합니다.</span></div>
+            <div class="overview-row"><span class="num">4</span><span>Unity 생산라인 시뮬레이션과 양방향 연동하여 검사 요청, 결과 수신, 라인 정지, 조치 완료, 재검사까지 End-to-End 흐름을 구현했습니다.</span></div>
+          </div>
+          <aside class="quote"><div class="quote-mark">“</div><strong>사진 한 장의 판정을 넘어<br/>조치와 검증까지 수행하는 Agent</strong><span>Human-in-the-loop 기반 안전 설계</span></aside>
+        </div>
+      </section>
+
+      <section class="section workflow">
+        <div class="section-title"><span class="title-icon">⚙</span> Agent Workflow <small>입력 → 판단/계획 → Tool/API/Data → 실행 → Feedback</small></div>
+        <div class="workflow-body">
+          <div class="stage-row">
+            <div class="stage"><div class="stage-top"><span class="stage-n"><b>1</b></span>Perception</div><p>이미지 품질 검사 · 객체 탐지 · Golden Sample 비교 · Multimodal 교차 검증</p></div>
+            <div class="stage"><div class="stage-top"><span class="stage-n"><b>2</b></span>Reasoning &amp; Tools</div><p>결함 표준화 · 매뉴얼 검색 · 위험도 판단 · 근거와 대응 계획 생성</p></div>
+            <div class="stage"><div class="stage-top"><span class="stage-n"><b>3</b></span>Action &amp; Feedback</div><p>작업자 승인 · Unity 라인 제어 · 재검사 · RESOLVED/REANALYZE 상태 전이</p></div>
+          </div>
+          <div class="flow-label">시스템 구성도</div>
+          <div class="flow">
+            <div class="node"><div class="node-icon">▧</div><strong>Unity Camera<br/>Image Upload</strong><span>5개 검사 시나리오</span></div><div class="arrow">›</div>
+            <div class="node"><div class="node-icon">◉</div><strong>OpenCV<br/>Quality Gate</strong><span>밝기·선명도 검증</span></div><div class="arrow">›</div>
+            <div class="node"><div class="node-icon">▦</div><strong>YOLO-World<br/>Detection</strong><span>차량·부품 위치 탐지</span></div><div class="arrow">›</div>
+            <div class="node"><div class="node-icon">AI</div><strong>Gemini Vision<br/>Cross Check</strong><span>정상 기준 이미지 비교</span></div><div class="arrow">›</div>
+            <div class="node"><div class="node-icon">≡</div><strong>Manual Search<br/>Risk Planning</strong><span>원인·위험도·조치 생성</span></div><div class="arrow">›</div>
+            <div class="node"><div class="node-icon">↻</div><strong>SQLite Memory<br/>Unity Control</strong><span>이력·승인·재검사·복구</span></div>
+          </div>
+          <div class="techline"><b>활용 기술</b>Python · Streamlit · OpenCV · Ultralytics YOLO-World · Gemini Multimodal API · SQLite · Unity 6 URP · File Bridge</div>
+        </div>
+      </section>
+
+      <section class="section results">
+        <div class="section-title"><span class="title-icon">▥</span> 구현 결과 <small>Unity 실제 입력 · AI 판정 · 대표 테스트 5건</small></div>
+        <div class="results-body">
+          <div class="capture-grid">
+            <div class="capture"><img src="assets/normal.png" alt="정상 차량"/><div class="capture-label"><strong>TC01 정상 차량</strong><span class="status">NORMAL</span></div></div>
+            <div class="capture"><img src="assets/wheel_missing.png" alt="휠 누락"/><div class="capture-label"><strong>TC02 휠 누락</strong><span class="status danger">CRITICAL</span></div></div>
+            <div class="capture"><img src="assets/headlight_missing.png" alt="헤드라이트 누락"/><div class="capture-label"><strong>TC03 헤드라이트 누락</strong><span class="status high">HIGH</span></div></div>
+            <div class="capture"><img src="assets/door_misaligned.png" alt="도어 조립 이상"/><div class="capture-label"><strong>TC04 도어 조립 이상</strong><span class="status high">HIGH</span></div></div>
+          </div>
+          <div class="result-panel">
+            <div class="score-card"><small>대표 테스트 검증 결과</small><div class="score-line"><strong>5 / 5</strong><span>PASS · 100%</span></div></div>
+            <div class="test-table">
+              <div class="test-head"><div>ID</div><div>입력 / 기대 결과</div><div style="text-align:right">검증</div></div>
+              <div class="test-row"><div>TC01</div><div>정상 차량<span>NORMAL · LOW · NO_ACTION</span></div><div class="pass">PASS</div></div>
+              <div class="test-row"><div>TC02</div><div>휠 누락<span>ABNORMAL · CRITICAL · STOP_LINE</span></div><div class="pass">PASS</div></div>
+              <div class="test-row"><div>TC03</div><div>헤드라이트 누락<span>ABNORMAL · HIGH · INSPECT_PART</span></div><div class="pass">PASS</div></div>
+              <div class="test-row"><div>TC04</div><div>도어 조립 이상<span>ABNORMAL · HIGH · REASSEMBLY</span></div><div class="pass">PASS</div></div>
+              <div class="test-row"><div>TC05</div><div>판별 불확실 이미지<span>UNKNOWN · HUMAN_REVIEW_REQUIRED</span></div><div class="pass">PASS</div></div>
+            </div>
+            <div class="json-card"><b>{</b><br>&nbsp;"status": <em>"ABNORMAL"</em>,<br>&nbsp;"defect": <em>"front_right_wheel_missing"</em>,<br>&nbsp;"confidence": <em>0.95</em>,<br>&nbsp;"risk_level": <em>"CRITICAL"</em><br><b>}</b></div>
+            <div class="trace"><b>Agent 실행 추적</b><br/>Vision Inspection → Defect Detection → Manual Search → Risk Assessment → Action Planning → Operator Approval → Reinspection</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section impact">
+        <div class="section-title"><span class="title-icon">✦</span> 기대 효과 <small>현장 적용 가치와 확장성</small></div>
+        <div class="impact-body">
+          <div class="impact-card"><div class="impact-icon">⌕</div><strong>검사 신뢰성 향상</strong><span>다중 Vision 분석과 정상 기준 비교로 누락 위험 감소</span></div>
+          <div class="impact-card"><div class="impact-icon">⚡</div><strong>초동 대응 단축</strong><span>위험도별 라인 정지와 작업 절차를 즉시 제안</span></div>
+          <div class="impact-card"><div class="impact-icon">✓</div><strong>안전한 자동화</strong><span>불확실·고위험 판단에 작업자 승인 절차 적용</span></div>
+          <div class="impact-card"><div class="impact-icon">↗</div><strong>현장 확장 가능</strong><span>실제 카메라·MES·설비 제어 API로 단계적 교체 가능</span></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-left"><b>AutoMate</b> · 자동차 조립공정 이상 분석 및 대응 AI Agent<br/>제4회 경남 AI 공모전 · 제조·피지컬 AI Agent 분야 · 개발자 이현재</div>
+      <div class="github"><img src="assets/github_qr.png" alt="GitHub QR"/><div><strong>Source &amp; Demo Guide</strong>github.com/dlgusw0/AutoMate</div></div>
+    </footer>
+  </div>
+</body>
+</html>

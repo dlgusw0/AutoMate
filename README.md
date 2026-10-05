@@ -114,6 +114,8 @@ python -m streamlit run app.py
 | `unity/AutoMateSimulation` | 생산 라인 디지털 트윈 |
 | `docs/DEMO_GUIDE.md` | 심사 발표용 상세 시연 순서 |
 | `docs/DEMO_VIDEO_3MIN.md` | 3분 실제 동작 영상 촬영 대본 |
+| `docs/pamphlet/AutoMate_Pamphlet_A3.pdf` | A3 세로형 대회 제출용 팸플릿 |
+| `docs/pamphlet/AutoMate_Pamphlet.html` | 팸플릿 수정 및 재출력용 원본 |
 
 ## 안전 정책
 

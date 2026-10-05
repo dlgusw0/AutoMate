@@ -1,0 +1,130 @@
+{
+  "manuals": [
+    {
+      "manual_id": "WHEEL-001",
+      "title": "휠 누락 및 미체결 대응 절차",
+      "defect_type": "wheel_missing",
+      "keywords": [
+        "wheel_missing",
+        "missing_wheel",
+        "tire_missing",
+        "front_left_wheel_missing",
+        "front_right_wheel_missing",
+        "rear_left_wheel_missing",
+        "rear_right_wheel_missing"
+      ],
+      "risk_level": "CRITICAL",
+      "possible_causes": [
+        "휠 장착 공정 누락",
+        "체결 장비 정지 또는 작업 순서 미완료",
+        "부품 공급 지연으로 인한 임시 공정 통과"
+      ],
+      "immediate_actions": [
+        "차량 이동을 즉시 중지한다.",
+        "차량을 안전 위치에 고정하고 접근을 통제한다.",
+        "작업 책임자에게 이상 상태를 보고한다."
+      ],
+      "inspection_steps": [
+        "해당 위치의 휠과 체결 부품 존재 여부를 육안 확인한다.",
+        "규정된 순서로 휠을 장착한다.",
+        "현장 기준 토크로 체결되었는지 공구 기록과 함께 확인한다.",
+        "다른 휠에도 동일한 누락 또는 미체결이 없는지 검사한다.",
+        "조치 후 이미지를 다시 촬영하여 재검사한다."
+      ],
+      "completion_criteria": "모든 휠의 장착 및 현장 기준 토크 확인 후 재검사에서 정상 판정",
+      "requires_human_confirmation": true
+    },
+    {
+      "manual_id": "LIGHT-001",
+      "title": "헤드라이트 누락 및 장착 이상 대응 절차",
+      "defect_type": "headlight_missing",
+      "keywords": [
+        "headlight_missing",
+        "headlamp_missing",
+        "front_light_missing",
+        "left_headlight_missing",
+        "right_headlight_missing"
+      ],
+      "risk_level": "HIGH",
+      "possible_causes": [
+        "헤드라이트 모듈 공급 또는 장착 누락",
+        "커넥터 연결 전 공정 이동",
+        "브래킷 또는 고정부 체결 미완료"
+      ],
+      "immediate_actions": [
+        "차량의 다음 공정 이동을 보류한다.",
+        "전원 인가 상태라면 현장 안전 절차에 따라 전원을 차단한다.",
+        "부품 번호와 장착 위치를 작업자가 확인한다."
+      ],
+      "inspection_steps": [
+        "좌우 헤드라이트 모듈의 존재와 방향을 확인한다.",
+        "브래킷과 고정부의 체결 상태를 확인한다.",
+        "전기 커넥터 연결과 배선 손상 여부를 확인한다.",
+        "현장 검사 절차에 따라 점등 기능을 확인한다.",
+        "조치 후 이미지를 다시 촬영하여 재검사한다."
+      ],
+      "completion_criteria": "모듈 장착·체결·커넥터 연결 및 점등 확인 후 재검사에서 정상 판정",
+      "requires_human_confirmation": true
+    },
+    {
+      "manual_id": "DOOR-001",
+      "title": "도어 조립 및 정렬 이상 대응 절차",
+      "defect_type": "door_assembly_defect",
+      "keywords": [
+        "door_assembly_defect",
+        "door_misalignment",
+        "door_alignment",
+        "door_gap",
+        "door_not_closed",
+        "door_missing"
+      ],
+      "risk_level": "HIGH",
+      "possible_causes": [
+        "도어 힌지 위치 또는 체결 불량",
+        "도어 래치 조정 불량",
+        "차체와 도어 사이 간극 기준 이탈"
+      ],
+      "immediate_actions": [
+        "도어를 반복 개폐하지 말고 차량 이동을 보류한다.",
+        "도어가 열린 상태라면 낙하 또는 충돌하지 않도록 고정한다.",
+        "차체 및 도어 손상 여부를 작업자가 확인한다."
+      ],
+      "inspection_steps": [
+        "도어와 차체 사이의 상하·전후 간극을 확인한다.",
+        "힌지, 볼트, 래치의 장착 및 체결 상태를 확인한다.",
+        "도어를 안전하게 개폐하여 걸림과 잠금 상태를 확인한다.",
+        "실링과 배선이 눌리거나 손상되지 않았는지 확인한다.",
+        "조치 후 이미지를 다시 촬영하여 재검사한다."
+      ],
+      "completion_criteria": "현장 간극 기준 충족 및 개폐·잠금 확인 후 재검사에서 정상 판정",
+      "requires_human_confirmation": true
+    },
+    {
+      "manual_id": "GENERAL-001",
+      "title": "분류되지 않은 외관 이상 확인 절차",
+      "defect_type": "general_visual_defect",
+      "keywords": [],
+      "risk_level": "UNKNOWN",
+      "possible_causes": [
+        "등록되지 않은 조립 이상",
+        "촬영 각도 또는 가림으로 인한 오인식",
+        "부품 손상 또는 공정 미완료"
+      ],
+      "immediate_actions": [
+        "차량의 다음 공정 이동을 보류한다.",
+        "현장 작업자가 실제 이상 위치와 상태를 확인한다.",
+        "판단 전까지 임의로 정상 처리하지 않는다."
+      ],
+      "inspection_steps": [
+        "AI가 표시한 결함명과 이미지의 이상 위치를 대조한다.",
+        "더 밝고 가까운 각도에서 추가 이미지를 촬영한다.",
+        "작업 책임자가 적용할 현장 매뉴얼을 선택한다.",
+        "관련 부품과 주변 조립 상태를 함께 점검한다.",
+        "확인 및 조치 후 이미지를 다시 촬영하여 재검사한다."
+      ],
+      "completion_criteria": "작업자가 결함 종류와 적용 매뉴얼을 확정하고 재검사를 완료",
+      "requires_human_confirmation": true,
+      "is_fallback": true
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+.env
+.env.*
+!.env.example
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+*.db
+*.db-shm
+*.db-wal
+*.pt
+runs/
+.ultralytics/
+
+# Unity generated files
+unity/AutoMateSimulation/Library/
+unity/AutoMateSimulation/Temp/
+unity/AutoMateSimulation/Obj/
+unity/AutoMateSimulation/Build/
+unity/AutoMateSimulation/Builds/
+unity/AutoMateSimulation/Logs/
+unity/AutoMateSimulation/UserSettings/
+unity/AutoMateSimulation/MemoryCaptures/
+unity/AutoMateSimulation/Recordings/
+unity/AutoMateSimulation/*.csproj
+unity/AutoMateSimulation/*.sln
+unity/AutoMateSimulation/*.slnx
+
+# Unity inspection camera output
+unity_captures/*.png
+!unity_captures/.gitkeep
+
+# Python Agent ↔ Unity runtime bridge
+unity_bridge/*.json
+unity_bridge/*.tmp
+!unity_bridge/.gitkeep

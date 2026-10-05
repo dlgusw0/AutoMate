@@ -1,0 +1,12 @@
+# AutoMate 자동차 부품 탐지 데이터셋
+# 학습 실행 위치는 AutoMate 프로젝트 루트를 기준으로 한다.
+path: datasets/automate
+train: images/train
+val: images/val
+test: images/test
+
+names:
+  0: car
+  1: wheel
+  2: headlight
+  3: door

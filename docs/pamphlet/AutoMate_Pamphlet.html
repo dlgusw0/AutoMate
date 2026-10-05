@@ -104,10 +104,12 @@
     .section-title small { font-size: 3.1mm; color: #678; font-weight: 700; margin-left: 2mm; }
 
     .overview { height: 56mm; }
-    .overview-body { display: grid; grid-template-columns: 1fr 57mm; gap: 5mm; padding: 3.4mm 5mm; }
-    .overview-list { display: grid; gap: 1.7mm; }
-    .overview-row { display: grid; grid-template-columns: 6.5mm 1fr; align-items: start; font-size: 3.25mm; line-height: 1.38; color: #344863; font-weight: 600; }
-    .num { width: 5.4mm; height: 5.4mm; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(145deg,#287ce9,#0c3b85); color: white; font-size: 2.9mm; font-weight: 900; }
+    .overview-body { display: grid; grid-template-columns: 1fr 57mm; gap: 5mm; padding: 2.2mm 5mm; }
+    .overview-list { display: grid; gap: 1.05mm; }
+    .project-meta { display: flex; align-items: center; gap: 1.2mm; margin-bottom: .3mm; }
+    .meta-chip { padding: .8mm 1.8mm; border-radius: 10mm; background: #e9f3ff; color: #245d9d; font-size: 2.1mm; font-weight: 850; white-space: nowrap; }
+    .overview-row { display: grid; grid-template-columns: 12.5mm 1fr; align-items: start; font-size: 2.82mm; line-height: 1.3; color: #344863; font-weight: 600; }
+    .num { width: 11.2mm; height: 5.2mm; border-radius: 10mm; display: grid; place-items: center; background: linear-gradient(145deg,#287ce9,#0c3b85); color: white; font-size: 2.05mm; font-weight: 900; }
     .quote {
       border-radius: 3mm; padding: 3mm 4mm;
       background: linear-gradient(145deg, #edf7ff, #eef4ff);
@@ -120,7 +122,7 @@
     .agent-proof { margin-top: 1.3mm; display: flex; flex-wrap: wrap; justify-content: center; gap: .8mm; }
     .agent-proof i { padding: .6mm 1.35mm; border-radius: 10mm; background: #dbeaff; color: #1a5ba7; font-size: 1.75mm; line-height: 1; font-style: normal; font-weight: 900; }
 
-    .workflow { height: 71mm; }
+    .workflow { height: 75mm; }
     .workflow-body { padding: 2.5mm 5mm 3mm; }
     .stage-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; margin-bottom: 2.3mm; }
     .stage { min-height: 15mm; border-radius: 2.5mm; padding: 2.3mm 3.5mm; border: .3mm solid #dceafb; background: #f7fbff; }
@@ -141,10 +143,10 @@
     .node strong { display: block; font-size: 3mm; line-height: 1.25; }
     .node span { display: block; margin-top: 1mm; font-size: 2.25mm; line-height: 1.25; color: #64758b; font-weight: 650; }
     .arrow { display: grid; place-items: center; color: #5d91cc; font-size: 5mm; font-weight: 900; }
-    .techline { margin-top: 2.2mm; border-radius: 2mm; background: #eef5ff; padding: 1.7mm 3mm; font-size: 2.7mm; font-weight: 700; color: #355578; }
+    .techline { margin-top: 2mm; border-radius: 2mm; background: #eef5ff; padding: .75mm 3mm; font-size: 2.15mm; line-height: 1.35; font-weight: 700; color: #355578; }
     .techline b { color: #1766c4; margin-right: 2mm; }
 
-    .results { height: 134mm; }
+    .results { height: 130mm; }
     .results-body { display: grid; grid-template-columns: 148mm 1fr; gap: 4mm; padding: 3mm 5mm; }
     .capture-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3mm; }
     .capture { position: relative; height: 43.5mm; border-radius: 2.8mm; overflow: hidden; background: #071733; border: .35mm solid #d0dff2; }
@@ -171,18 +173,18 @@
     .json-card { border-radius: 2.5mm; background: #071629; color: #d4e6ff; padding: 2mm 3.5mm; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 2.1mm; line-height: 1.35; }
     .json-card b { color: #62ddff; }
     .json-card em { color: #ffbd55; font-style: normal; }
-    .trace { border-left: 1mm solid #3d8de8; background: #f1f7ff; border-radius: 1.5mm; padding: 1.8mm 3mm; font-size: 2.05mm; line-height: 1.35; color: #4b6078; font-weight: 700; }
+    .trace { border-left: 1mm solid #3d8de8; background: #f1f7ff; border-radius: 1.5mm; padding: 1.5mm 3mm; font-size: 1.9mm; line-height: 1.3; color: #4b6078; font-weight: 700; }
     .trace b { color: #165eaf; }
     .state-lines { margin-top: 1mm; padding-top: 1mm; border-top: .25mm solid #cfe0f4; font-size: 1.9mm; line-height: 1.4; }
     .state-lines strong { color: #174f91; }
 
     .impact { height: 41mm; }
-    .impact-body { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; padding: 3.5mm 5mm; }
-    .impact-card { text-align: center; padding: 2.4mm 2mm; border-right: .25mm solid #e1eaf4; }
-    .impact-card:last-child { border-right: 0; }
-    .impact-icon { font-size: 5mm; }
-    .impact-card strong { display: block; margin-top: .8mm; font-size: 3.1mm; color: #174d8f; }
-    .impact-card span { display: block; margin-top: .8mm; font-size: 2.35mm; line-height: 1.35; color: #627389; font-weight: 650; }
+    .impact-body { display: grid; grid-template-columns: 1fr 1fr 1.28fr; gap: 2.5mm; padding: 3mm 5mm; }
+    .impact-card { min-height: 23mm; padding: 2.2mm 2.8mm; border: .25mm solid #dce8f6; border-radius: 2.2mm; background: #f8fbff; }
+    .impact-card:nth-child(2) { background: #f2fbf7; border-color: #d2eee3; }
+    .impact-card:nth-child(3) { background: #fff9ef; border-color: #f3e1bb; }
+    .impact-card strong { display: block; font-size: 3mm; color: #174d8f; }
+    .impact-card span { display: block; margin-top: 1mm; font-size: 2.15mm; line-height: 1.37; color: #586d85; font-weight: 680; }
 
     footer {
       position: absolute; left: 0; right: 0; bottom: 0; height: 18mm;
@@ -210,7 +212,7 @@
           <div class="hero-desc">생산공정 이미지를 인식하고 결함을 교차 검증한 뒤, 제조 매뉴얼 기반 대응 계획과 라인 제어를 수행하고 재검사로 해결 여부까지 확인합니다.</div>
         </div>
         <div class="hero-bottom">
-          <div class="identity"><b>프로젝트</b> AutoMate　 <b>개발자</b> 이현재</div>
+          <div class="identity"><b>팀명</b> AutoMate　 <b>팀원</b> 이현재　 <b>개발기간</b> 8일</div>
           <div class="hero-slogan"><em>DETECT · DECIDE · ACT · VERIFY</em>감지에서 해결까지 이어지는<br/>안전한 제조 AI</div>
         </div>
       </div>
@@ -218,20 +220,21 @@
 
     <main>
       <section class="section overview">
-        <div class="section-title"><span class="title-icon">▣</span> 프로젝트 개요 <small>개발 배경 · 목표 · 차별점</small></div>
+        <div class="section-title"><span class="title-icon">▣</span> 1·2. 프로젝트 현황 및 개요 <small>제목 · 요약 · 팀 · 문제 · 사용자 · 목표</small></div>
         <div class="overview-body">
           <div class="overview-list">
-            <div class="overview-row"><span class="num">1</span><span>휠·헤드라이트 누락과 도어 조립 이상은 차량 안전과 완성 품질에 직접 영향을 주지만, 작업자의 육안 검사만으로는 누락과 판단 지연이 발생할 수 있습니다.</span></div>
-            <div class="overview-row"><span class="num">2</span><span>AutoMate는 <b>OpenCV → YOLO-World → Gemini Vision</b>을 연결하여 이미지 품질, 객체 탐지, 조립 이상을 단계적으로 분석합니다.</span></div>
-            <div class="overview-row"><span class="num">3</span><span>이상 발생 시 제조 매뉴얼을 검색하고 위험도와 대응 절차를 생성하며, 위험하거나 불확실한 판단은 작업자 승인 후 실행합니다.</span></div>
-            <div class="overview-row"><span class="num">4</span><span>Unity 생산라인 시뮬레이션과 양방향 연동하여 검사 요청, 결과 수신, 라인 정지, 조치 완료, 재검사까지 End-to-End 흐름을 구현했습니다.</span></div>
+            <div class="project-meta"><span class="meta-chip">프로젝트명 AutoMate</span><span class="meta-chip">팀명 AutoMate</span><span class="meta-chip">팀원 이현재</span><span class="meta-chip">제조·피지컬 AI Agent</span></div>
+            <div class="overview-row"><span class="num">요약</span><span>공정 이미지를 분석하고 매뉴얼 기반 대응과 작업자 승인, 조치 후 재검사까지 수행하는 자동차 조립 이상 대응 AI Agent입니다.</span></div>
+            <div class="overview-row"><span class="num">문제</span><span>휠·헤드라이트 누락과 도어 이상은 안전에 직접 영향을 주며, 육안 검사만으로는 누락과 대응 지연이 발생할 수 있습니다.</span></div>
+            <div class="overview-row"><span class="num">사용자</span><span>자동차 조립라인 검사 작업자, 품질 담당자, 생산라인 관리자를 핵심 사용자로 설정했습니다.</span></div>
+            <div class="overview-row"><span class="num">목표</span><span>이상 감지 → 매뉴얼 검색 → 위험도·대응 계획 → 작업자 조치 → 재검사를 연결해 안전하게 <b>RESOLVED</b> 상태까지 관리합니다.</span></div>
           </div>
           <aside class="quote"><div class="quote-mark">“</div><strong>사진 한 장의 판정을 넘어<br/>조치와 검증까지 수행하는 Agent</strong><span>Human-in-the-loop 기반 안전 설계</span><div class="agent-proof"><i>GOAL</i><i>PLANNING</i><i>REASONING</i><i>TOOLS</i><i>MEMORY</i><i>FEEDBACK</i></div></aside>
         </div>
       </section>
 
       <section class="section workflow">
-        <div class="section-title"><span class="title-icon">⚙</span> Agent Workflow <small>입력 → 판단/계획 → Tool/API/Data → 실행 → Feedback</small></div>
+        <div class="section-title"><span class="title-icon">⚙</span> 3. 개발 세부 내용 <small>시스템 구조 · 활용 데이터 · AI Tool/알고리즘 · 단계별 개발</small></div>
         <div class="workflow-body">
           <div class="stage-row">
             <div class="stage"><div class="stage-top"><span class="stage-n"><b>1</b></span>Perception</div><p>이미지 품질 검사 · 객체 탐지 · Golden Sample 비교 · Multimodal 교차 검증</p></div>
@@ -247,12 +250,12 @@
             <div class="node"><div class="node-icon">≡</div><strong>Manual Search<br/>Risk Planning</strong><span>원인·위험도·조치 생성</span></div><div class="arrow">›</div>
             <div class="node"><div class="node-icon">↻</div><strong>SQLite Memory<br/>Unity Control</strong><span>이력·승인·재검사·복구</span></div>
           </div>
-          <div class="techline"><b>활용 기술</b>Python · Streamlit · OpenCV · Ultralytics YOLO-World · Gemini Multimodal API · SQLite · Unity 6 URP · File Bridge</div>
+          <div class="techline"><div><b>활용 데이터</b>Unity 5종 시나리오 이미지 · 정상 Golden Sample · 제조 매뉴얼 JSON · SQLite 검사/재검사 이력</div><div><b>AI Tool/알고리즘</b>OpenCV 품질 임계값 · YOLO-World 개방형 객체 탐지 · Gemini Structured Output · 키워드 매뉴얼 검색 · 위험도 우선 규칙</div></div>
         </div>
       </section>
 
       <section class="section results">
-        <div class="section-title"><span class="title-icon">▥</span> 구현 결과 <small>Unity 실제 입력 · AI 판정 · 대표 테스트 5건</small></div>
+        <div class="section-title"><span class="title-icon">▥</span> 4. 구현 결과 <small>핵심 기능 · Streamlit 대시보드 · Unity 실제 입력 · 대표 테스트</small></div>
         <div class="results-body">
           <div class="capture-grid">
             <div class="capture"><img src="assets/normal.png" alt="정상 차량"/><div class="capture-label"><strong>TC01 정상 차량</strong><span class="status">NORMAL</span></div></div>
@@ -271,18 +274,17 @@
               <div class="test-row"><div>TC05</div><div>판별 불확실 이미지<span>UNKNOWN · HUMAN_REVIEW_REQUIRED</span></div><div class="pass">PASS</div></div>
             </div>
             <div class="json-card"><b>{</b><br>&nbsp;"status": <em>"ABNORMAL"</em>,<br>&nbsp;"defect": <em>"front_right_wheel_missing"</em>,<br>&nbsp;"confidence": <em>0.95</em>,<br>&nbsp;"risk_level": <em>"CRITICAL"</em><br><b>}</b></div>
-            <div class="trace"><b>Agent 실행 추적</b><br/>Vision Inspection → Defect Detection → Manual Search → Risk Assessment → Action Planning → Operator Approval → Reinspection<div class="state-lines"><strong>Memory/State</strong> inspection_id · 이전 판정 · 결함 · 대응 · 승인 · 재검사 횟수<br/><strong>Feedback</strong> 조치 완료 → 재검사 → RESOLVED / 이상 지속 → REANALYZE</div></div>
+            <div class="trace"><b>Streamlit Dashboard 구현</b> 이미지 입력 · Tool 실행 로그 · JSON 판정 · 매뉴얼/대응 계획 · SQLite 이력 · 재검사<div class="state-lines"><strong>Agent Trace</strong> Vision → Detection → Manual Search → Risk → Planning → Approval<br/><strong>Memory/Feedback</strong> 이전 판정·결함·대응·재검사 저장 → RESOLVED / REANALYZE</div></div>
           </div>
         </div>
       </section>
 
       <section class="section impact">
-        <div class="section-title"><span class="title-icon">✦</span> 기대 효과 <small>현장 적용 가치와 확장성</small></div>
+        <div class="section-title"><span class="title-icon">✦</span> 5. 기대효과 및 성과·한계 <small>현장 가치 · 구현 성과 · 향후 개선</small></div>
         <div class="impact-body">
-          <div class="impact-card"><div class="impact-icon">⌕</div><strong>검사 신뢰성 향상</strong><span>다중 Vision 분석과 정상 기준 비교로 누락 위험 감소</span></div>
-          <div class="impact-card"><div class="impact-icon">⚡</div><strong>초동 대응 단축</strong><span>위험도별 라인 정지와 작업 절차를 즉시 제안</span></div>
-          <div class="impact-card"><div class="impact-icon">✓</div><strong>안전한 자동화</strong><span>불확실·고위험 판단에 작업자 승인 절차 적용</span></div>
-          <div class="impact-card"><div class="impact-icon">↗</div><strong>현장 확장 가능</strong><span>실제 카메라·MES·설비 제어 API로 단계적 교체 가능</span></div>
+          <div class="impact-card"><strong>기대효과</strong><span>• 다중 Vision 분석으로 검사 누락 위험 감소<br/>• 매뉴얼 기반 대응 절차 표준화<br/>• 위험도별 라인 정지로 초동 대응 단축</span></div>
+          <div class="impact-card"><strong>구현 성과</strong><span>• 대표 시나리오 5/5 기능 검증<br/>• 감지–조치–재검사 E2E 구현<br/>• Unity 양방향 제어와 HITL 안전 정책 적용</span></div>
+          <div class="impact-card"><strong>한계 및 향후 개선</strong><span>합성 이미지 중심의 제한된 MVP 검증이며 전용 YOLO 학습 전 단계입니다. 실제 공정 데이터 확보, 부품별 라벨링·파인튜닝, 실제 카메라/MES·PLC 연동 및 성능 평가가 필요합니다.</span></div>
         </div>
       </section>
     </main>

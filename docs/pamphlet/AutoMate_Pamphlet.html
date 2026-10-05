@@ -36,7 +36,7 @@
       position: relative;
     }
     .hero {
-      height: 75mm;
+      height: 82mm;
       position: relative;
       overflow: hidden;
       color: white;
@@ -62,7 +62,7 @@
     }
     .hero-content {
       position: relative; z-index: 2; height: 100%;
-      padding: 9mm 13mm 6mm;
+      padding: 8mm 13mm 8mm;
       display: flex; flex-direction: column; justify-content: space-between;
     }
     .badge {
@@ -72,14 +72,14 @@
       color: #8feaff; font-size: 4mm; font-weight: 800; letter-spacing: .15mm;
     }
     .badge-dot { width: 2mm; height: 2mm; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 4mm var(--cyan); }
-    h1 { margin: 4mm 0 0; font-size: 18mm; line-height: .9; letter-spacing: -.9mm; font-weight: 900; }
-    .hero-sub { margin-top: 3.3mm; font-size: 7.2mm; font-weight: 800; letter-spacing: -.25mm; }
-    .hero-desc { margin-top: 2.3mm; max-width: 162mm; font-size: 3.75mm; line-height: 1.5; color: #d3e4ff; font-weight: 600; }
+    h1 { margin: 3mm 0 0; font-size: 17mm; line-height: .9; letter-spacing: -.8mm; font-weight: 900; }
+    .hero-sub { margin-top: 2.8mm; font-size: 6.8mm; font-weight: 800; letter-spacing: -.25mm; }
+    .hero-desc { margin-top: 2mm; max-width: 162mm; font-size: 3.5mm; line-height: 1.45; color: #d3e4ff; font-weight: 600; }
     .hero-bottom { display: flex; align-items: flex-end; justify-content: space-between; }
     .identity { font-size: 3.5mm; color: #cfe0fb; }
     .identity b { color: #5ee4ff; margin-right: 1.5mm; }
     .hero-slogan {
-      text-align: right; font-size: 4.3mm; line-height: 1.35; font-weight: 800;
+      text-align: right; font-size: 4mm; line-height: 1.3; font-weight: 800;
       text-shadow: 0 1mm 3mm rgba(0,0,0,.7);
     }
     .hero-slogan em { display: block; color: #6ee9ff; font-size: 3.2mm; font-style: normal; letter-spacing: .2mm; }
@@ -146,7 +146,7 @@
     .techline { margin-top: 2mm; border-radius: 2mm; background: #eef5ff; padding: .75mm 3mm; font-size: 2.15mm; line-height: 1.35; font-weight: 700; color: #355578; }
     .techline b { color: #1766c4; margin-right: 2mm; }
 
-    .results { height: 130mm; }
+    .results { height: 125mm; }
     .results-body { display: grid; grid-template-columns: 148mm 1fr; gap: 4mm; padding: 3mm 5mm; }
     .capture-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3mm; }
     .capture { position: relative; height: 43.5mm; border-radius: 2.8mm; overflow: hidden; background: #071733; border: .35mm solid #d0dff2; }
@@ -157,6 +157,12 @@
     .status { font-size: 2.2mm; font-weight: 900; padding: .8mm 1.8mm; border-radius: 10mm; background: var(--mint); color: #05281c; }
     .status.danger { background: var(--red); color: white; }
     .status.high { background: var(--amber); color: #3a2300; }
+    .defect-marker { position: absolute; z-index: 4; border: .8mm dashed #ff455d; border-radius: 50%; box-shadow: 0 0 0 .6mm rgba(255,255,255,.75), 0 0 4mm rgba(255,54,82,.85); }
+    .defect-marker::after { content: attr(data-label); position: absolute; left: 50%; top: -6.5mm; transform: translateX(-50%); white-space: nowrap; padding: .8mm 1.7mm; border-radius: 10mm; color: white; background: #e82f49; font-size: 2.15mm; font-weight: 900; box-shadow: 0 .7mm 2mm rgba(0,0,0,.3); }
+    .wheel-marker { left: 43%; top: 51%; width: 12%; height: 23%; }
+    .light-marker { left: 65%; top: 44%; width: 8%; height: 21%; }
+    .door-marker { left: 26%; top: 19%; width: 15%; height: 43%; border-radius: 2mm; }
+    .reference-badge { position: absolute; z-index: 4; top: 2mm; left: 2mm; padding: .8mm 1.7mm; border-radius: 10mm; background: rgba(12,116,83,.9); color: white; font-size: 2.05mm; font-weight: 900; }
     .result-panel { display: flex; flex-direction: column; gap: 2mm; }
     .score-card { height: 20mm; border-radius: 3mm; padding: 2.2mm 4mm; color: white; background: linear-gradient(135deg,#0a397b,#0b75da); position: relative; overflow: hidden; }
     .score-card::after { content:""; position:absolute; width:30mm; height:30mm; border-radius:50%; right:-8mm; top:-9mm; background:rgba(65,220,255,.18); }
@@ -178,9 +184,9 @@
     .state-lines { margin-top: 1mm; padding-top: 1mm; border-top: .25mm solid #cfe0f4; font-size: 1.9mm; line-height: 1.4; }
     .state-lines strong { color: #174f91; }
 
-    .impact { height: 41mm; }
+    .impact { height: 39mm; }
     .impact-body { display: grid; grid-template-columns: 1fr 1fr 1.28fr; gap: 2.5mm; padding: 3mm 5mm; }
-    .impact-card { min-height: 23mm; padding: 2.2mm 2.8mm; border: .25mm solid #dce8f6; border-radius: 2.2mm; background: #f8fbff; }
+    .impact-card { min-height: 21.5mm; padding: 2mm 2.8mm; border: .25mm solid #dce8f6; border-radius: 2.2mm; background: #f8fbff; }
     .impact-card:nth-child(2) { background: #f2fbf7; border-color: #d2eee3; }
     .impact-card:nth-child(3) { background: #fff9ef; border-color: #f3e1bb; }
     .impact-card strong { display: block; font-size: 3mm; color: #174d8f; }
@@ -258,10 +264,10 @@
         <div class="section-title"><span class="title-icon">▥</span> 4. 구현 결과 <small>핵심 기능 · Streamlit 대시보드 · Unity 실제 입력 · 대표 테스트</small></div>
         <div class="results-body">
           <div class="capture-grid">
-            <div class="capture"><img src="assets/normal.png" alt="정상 차량"/><div class="capture-label"><strong>TC01 정상 차량</strong><span class="status">NORMAL</span></div></div>
-            <div class="capture"><img src="assets/wheel_missing.png" alt="휠 누락"/><div class="capture-label"><strong>TC02 휠 누락</strong><span class="status danger">CRITICAL</span></div></div>
-            <div class="capture"><img src="assets/headlight_missing.png" alt="헤드라이트 누락"/><div class="capture-label"><strong>TC03 헤드라이트 누락</strong><span class="status high">HIGH</span></div></div>
-            <div class="capture"><img src="assets/door_misaligned.png" alt="도어 조립 이상"/><div class="capture-label"><strong>TC04 도어 조립 이상</strong><span class="status high">HIGH</span></div></div>
+            <div class="capture"><img src="assets/normal.png" alt="정상 차량"/><span class="reference-badge">정상 기준</span><div class="capture-label"><strong>TC01 정상 차량</strong><span class="status">NORMAL</span></div></div>
+            <div class="capture"><img src="assets/wheel_missing.png" alt="휠 누락"/><span class="defect-marker wheel-marker" data-label="휠 누락 위치"></span><div class="capture-label"><strong>TC02 휠 누락</strong><span class="status danger">CRITICAL</span></div></div>
+            <div class="capture"><img src="assets/headlight_missing.png" alt="헤드라이트 누락"/><span class="defect-marker light-marker" data-label="헤드라이트 누락"></span><div class="capture-label"><strong>TC03 헤드라이트 누락</strong><span class="status high">HIGH</span></div></div>
+            <div class="capture"><img src="assets/door_misaligned.png" alt="도어 조립 이상"/><span class="defect-marker door-marker" data-label="도어 정렬 이상"></span><div class="capture-label"><strong>TC04 도어 조립 이상</strong><span class="status high">HIGH</span></div></div>
           </div>
           <div class="result-panel">
             <div class="score-card"><small>대표 테스트 검증 결과</small><div class="score-line"><strong>5 / 5</strong><span>PASS · 100%</span></div></div>

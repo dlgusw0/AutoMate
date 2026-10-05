@@ -3,6 +3,7 @@
 - `AutoMate_Pamphlet.html`: 편집 가능한 원본
 - `AutoMate_Pamphlet_A3.pdf`: 제출 및 인쇄용 A3 세로 PDF
 - `AutoMate_Pamphlet_preview.png`: 빠른 확인용 미리보기
+- `AutoMate_Pamphlet_A3_FINAL.pdf`: 글자 잘림 및 결함 위치 표시를 검수한 최종본
 
 HTML을 수정한 뒤 프로젝트 루트에서 아래 명령으로 PDF를 다시 만들 수 있습니다.
 

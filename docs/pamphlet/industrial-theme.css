@@ -1,0 +1,90 @@
+/* AutoMate Industrial Graphite theme
+   제조 현장의 설비, 안전 표지, 상태등에서 가져온 색과 직선형 UI를 사용한다. */
+:root {
+  --navy: #101716;
+  --navy2: #202927;
+  --blue: #f07824;
+  --cyan: #f6a64b;
+  --mint: #2fd0a0;
+  --red: #ef4459;
+  --amber: #ff9b32;
+  --ink: #202927;
+  --muted: #65716d;
+  --line: #d8d7d0;
+  --panel: #f3f2ed;
+}
+
+body { background: #d8d7d1; color: #202927; }
+.page { background: #f8f7f3; }
+.hero { background: #101716; }
+.hero-bg { filter: grayscale(.35) saturate(.72) contrast(1.12); }
+.hero::after {
+  background:
+    linear-gradient(118deg, rgba(239,112,31,.2) 0 1.3%, transparent 1.4% 75%, rgba(47,208,160,.11) 75.2%),
+    linear-gradient(90deg, rgba(11,18,17,.99) 0%, rgba(14,23,22,.95) 43%, rgba(16,23,22,.38) 74%, rgba(11,17,16,.67) 100%);
+}
+.hero::before {
+  content: ""; position: absolute; z-index: 2; left: 0; bottom: 0;
+  width: 88mm; height: 2.2mm; background: linear-gradient(90deg,#ef7020,#ffad52);
+}
+.hero-grid {
+  opacity: .11;
+  background-image: linear-gradient(rgba(240,120,36,.35) 1px, transparent 1px), linear-gradient(90deg, rgba(240,120,36,.35) 1px, transparent 1px);
+}
+.badge { background: rgba(240,120,36,.13); border-color: rgba(255,164,79,.72); color: #ffc17f; border-radius: 1.5mm; }
+.badge-dot { background: #ff882f; box-shadow: 0 0 4mm #ff882f; border-radius: .5mm; }
+.hero-sub { color: #f2f1eb; }
+.hero-sub::after { content:""; display:block; margin-top:2.2mm; width:24mm; height:.8mm; background:#ef7020; }
+.hero-desc { color: #d6d9d3; }
+.identity b { color: #ff9a46; }
+.hero-slogan em { color: #52ddb3; }
+
+.section { border-color: #d7d7d0; border-radius: 1.8mm; box-shadow: 0 1mm 3mm rgba(32,41,39,.07); background: #fbfaf7; }
+.section-title {
+  background: linear-gradient(90deg,#e8e8e2,#f8f7f3 78%);
+  border-bottom-color: #d9d8d1; border-left: 1.5mm solid #ef7020;
+}
+.title-icon { background: #202927; color: #ff9a46; border-radius: .8mm; box-shadow: none; }
+.section-title small { color: #69736f; }
+.meta-chip { background: #eceae3; color: #34413e; border: .25mm solid #d9d5ca; }
+.num { background: linear-gradient(145deg,#f28a3c,#c84f11); border-radius: 1mm; }
+.quote { background: linear-gradient(145deg,#fff4e7,#f4f0e8); border-color: #ead5bc; border-radius: 1.5mm; }
+.quote strong { color: #743916; }
+.quote span { color: #8c684f; }
+.agent-proof i { background: #e5dfd2; color: #3d4a46; border-radius: .7mm; }
+
+.stage { background:#edf7f3; border-color:#cae8dc; border-radius:1.2mm; border-left:1.2mm solid #20a97f; }
+.stage:nth-child(2) { background:#fff3e6; border-color:#efd3b5; border-left-color:#ef7020; }
+.stage:nth-child(3) { background:#eef0ed; border-color:#d5dad5; border-left-color:#394441; }
+.stage .stage-top { color:#148261; }
+.stage:nth-child(2) .stage-top { color:#c95714; }
+.stage:nth-child(3) .stage-top { color:#34413e; }
+.stage-n { background:#148261; }
+.stage:nth-child(2) .stage-n { background:#ef7020; }
+.stage:nth-child(3) .stage-n { background:#394441; }
+.node { border-color:#d5d5ce; border-radius:1.2mm; border-top:1mm solid #ef7020; box-shadow:0 .6mm 1.5mm rgba(32,41,39,.06); }
+.node-icon { background:#293431; color:#ffac62; border-radius:.7mm; }
+.arrow { color:#d9651c; }
+.techline { background:#e9e9e3; color:#43504c; border-radius:1mm; }
+.techline b { color:#cb5712; }
+
+.capture { border-color:#cbcfc9; border-radius:1.3mm; }
+.score-card { background:linear-gradient(135deg,#202927,#3a4541); border-radius:1.3mm; border-left:2mm solid #ef7020; }
+.score-card::after { background:rgba(240,120,36,.24); border-radius:0; transform:rotate(35deg); }
+.score-line span { color:#ffb76f; }
+.test-table { border-color:#d6d8d3; border-radius:1mm; }
+.test-head { background:#e8e9e4; color:#424f4b; }
+.json-card { background:#171e1d; border-radius:1mm; border-left:1mm solid #2fd0a0; }
+.json-card b { color:#57ddb5; }
+.json-card em { color:#ffad5e; }
+.trace { background:#eeeee8; border-left-color:#ef7020; border-radius:.7mm; }
+.trace b, .state-lines strong { color:#b64b10; }
+.state-lines { border-top-color:#d3d4cf; }
+
+.impact-card { border-radius:1mm; background:#efefea; border-color:#d8d9d3; border-top:1mm solid #2eb88e; }
+.impact-card:nth-child(2) { background:#eef5f1; border-color:#cedfd7; border-top-color:#1f9a76; }
+.impact-card:nth-child(3) { background:#fff2e4; border-color:#ecd3b5; border-top-color:#ef7020; }
+.impact-card strong { color:#303c39; }
+footer { background:linear-gradient(90deg,#dedfd9,#f0efe9); border-top-color:#caccc6; }
+.footer-left b, .github strong { color:#a8430d; }
+.github img { border-radius:.6mm; }
